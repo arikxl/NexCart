@@ -7,19 +7,11 @@ const AppHeader = () => {
     <header>
       <nav>
         <div className='navbar justify-between bg-base-300'>
-          <Link href='/' className='btn btn-ghost text-lg'>
+          <Link href='/' className='btn btn-ghost text-2xl text-[#F100B7] font-bold'>
             NexCart
           </Link>
 
           <HeaderMenu />
-          {/* <ul className='flex'>
-            <li>
-              <Link href='/cart' className='btn btn-ghost rounded-btn'>Cart</Link>
-            </li>
-            <li>
-              <Link href='/login' className='btn btn-ghost rounded-btn'>Login</Link>
-            </li>
-          </ul> */}
         </div>
       </nav>
     </header>

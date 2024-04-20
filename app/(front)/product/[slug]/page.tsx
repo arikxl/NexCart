@@ -19,7 +19,7 @@ const ProductDetails = ({ params, }: { params: { slug: string } }) => {
                     <div className='grid md:grid-cols-4 md:gap-3 mb-4 '>
                         <div className='md:col-span-2'>
                             <Image src={product.image} alt={product.name}
-                                width={640} height={640} sizes="100vw"
+                                width={640} height={640} sizes="100vw" priority
                                 style={{ width: '100%', height: 'auto' }} />
                         </div>
                         <div>

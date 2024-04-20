@@ -9,7 +9,7 @@ const ProductItem = ({ product }: { product: Product }) => {
             <figure>
                 <Link href={`/product/${product.slug}`}>
                     <Image src={product.image} alt={product.name} width="300" height="300"
-                        className='object-cover h-64 w-full' />
+                        priority  className='object-cover h-64 w-full' />
                 </Link>
             </figure>
             <div className='card-body'>

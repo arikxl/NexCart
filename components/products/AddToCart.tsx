@@ -1,5 +1,5 @@
 'use client'
-import { useRouter } from "next/navigation"
+// import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 
 import { OrderItem } from "@/lib/models/OrderModel"
@@ -9,8 +9,8 @@ import useCartService from "@/lib/hooks/useCartStore"
 
 
 export default function AddToCart({ item }: { item: OrderItem }) {
-    const router = useRouter();
-    const { items, increase } = useCartService();
+    // const router = useRouter();
+    const { items, increase, decrease } = useCartService();
     const [existItem, setExistItem] = useState<OrderItem | undefined>();
 
     useEffect(() => {
@@ -25,9 +25,10 @@ export default function AddToCart({ item }: { item: OrderItem }) {
         existItem
             ? (
                 <div>
-                    <button className='btn'>-</button>
+                    <button className='btn' onClick={() => decrease(existItem)}>-</button>
                     <span className='px-4'>{existItem.qty}</span>
-                    <button className='btn' onClick={() => increase(existItem)}>+</button>
+                    <button className='btn' disabled={existItem.qty >= existItem.countInStock}
+                        onClick={() => increase(existItem)}>+</button>
                 </div>
             )
             : (

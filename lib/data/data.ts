@@ -32,7 +32,7 @@ const data = {
             slug: 'marble-skirt',
             category: 'Dresses',
             image: '/imgs/marble.jpg',
-            price: 45,
+            price: 50,
             brand: 'MyAi',
             rating: 4.5,
             numOfReviews: 8,
