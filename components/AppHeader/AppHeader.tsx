@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import HeaderMenu from './HeaderMenu'
 
 const AppHeader = () => {
   return (
@@ -10,14 +11,15 @@ const AppHeader = () => {
             NexCart
           </Link>
 
-          <ul className='flex'>
+          <HeaderMenu />
+          {/* <ul className='flex'>
             <li>
               <Link href='/cart' className='btn btn-ghost rounded-btn'>Cart</Link>
             </li>
             <li>
               <Link href='/login' className='btn btn-ghost rounded-btn'>Login</Link>
             </li>
-          </ul>
+          </ul> */}
         </div>
       </nav>
     </header>

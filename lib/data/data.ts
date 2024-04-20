@@ -61,7 +61,7 @@ const data = {
             brand: 'Veganli',
             rating: 4.8,
             numOfReviews: 25,
-            countInStock: 15,
+            countInStock: 0,
             desc: 'Be a part of the filed',
         }
         ,

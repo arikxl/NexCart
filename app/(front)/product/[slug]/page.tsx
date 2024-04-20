@@ -1,4 +1,5 @@
 import Msg from '@/components/Msg'
+import AddToCart from '@/components/products/AddToCart'
 import data from '@/lib/data/data'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -53,11 +54,14 @@ const ProductDetails = ({ params, }: { params: { slug: string } }) => {
                                         {product.countInStock > 0 ? `${product.countInStock} In Stock` : 'Out of Stock'}
                                 </div>
                                 </div>
-                                <div className='card-actions justify-center'>
-                                    <button className='btn btn-secondary w-full'>
-                                        Add to Cart
-                                    </button>
-                                </div>
+                             
+                                {product.countInStock > 0
+                                    ? (<div className='card-actions justify-center'>
+                                        <AddToCart item={{...product, qty:0, color:'', size:''} } />
+                                    </div>) 
+                                    :(<button className='btn ' disabled>Out of Stock</button>)
+                                }
+                                
                             </div>
 
                         </div>
