@@ -1,13 +1,23 @@
+import Link from 'next/link'
+import Image from 'next/image'
+
+
 import Msg from '@/components/Msg'
 import AddToCart from '@/components/products/AddToCart'
-import data from '@/lib/data/data'
-import Image from 'next/image'
-import Link from 'next/link'
+import productService from '@/lib/services/productService'
+import { convertDocToObj } from '@/lib/utils/utils'
 
-const ProductDetails = ({ params, }: { params: { slug: string } }) => {
-    const product = data.products.find((x) => x.slug === params.slug)
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+    const product = await productService.getBySlug(params.slug);
+    if (!product) return { title: 'Product Not found!' };
+    return { title: product.name, description: product.desc }
+}
+
+
+const ProductDetails = async ({ params, }: { params: { slug: string } }) => {
+    const product = await productService.getBySlug(params.slug)
     return (
-
 
         !product
             ? (<Msg color="crimson">Product Not Found!</Msg>)
@@ -48,20 +58,20 @@ const ProductDetails = ({ params, }: { params: { slug: string } }) => {
                                     <div>${product.price}</div>
                                 </div>
 
-                            <div className='mb-2 flex justify-between'>
-                                <div>Status:</div>
-                                <div>
+                                <div className='mb-2 flex justify-between'>
+                                    <div>Status:</div>
+                                    <div>
                                         {product.countInStock > 0 ? `${product.countInStock} In Stock` : 'Out of Stock'}
+                                    </div>
                                 </div>
-                                </div>
-                             
+
                                 {product.countInStock > 0
                                     ? (<div className='card-actions justify-center'>
-                                        <AddToCart item={{...product, qty:0, color:'', size:''} } />
-                                    </div>) 
-                                    :(<button className='btn ' disabled>Out of Stock</button>)
+                                        <AddToCart item={{ ...convertDocToObj(product), qty: 0, color: '', size: '' }} />
+                                    </div>)
+                                    : (<button className='btn ' disabled>Out of Stock</button>)
                                 }
-                                
+
                             </div>
 
                         </div>

@@ -14,7 +14,8 @@ const data = {
             numOfReviews: 4,
             countInStock: 6,
             desc: 'Best pants you ever wear',
-            
+            isFeatured: true,
+            banner: '/imgs/pizza2.jpg',
         },
         {
             name: 'Glass Shirt',
@@ -51,6 +52,8 @@ const data = {
             rating: 4.2,
             numOfReviews: 15,
             countInStock: 30,
+            isFeatured: true,
+            banner: '/imgs/wood2.jpg',
             desc: 'Experience the nature on your body',
         }
         ,
@@ -77,6 +80,8 @@ const data = {
             rating: 4.6,
             numOfReviews: 12,
             countInStock: 18,
+            isFeatured: true,
+            banner: '/imgs/glass-d2.jpg',
             desc: 'Wanna be a crystal princess?',
         }
         ,
